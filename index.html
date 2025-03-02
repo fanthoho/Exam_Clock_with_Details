@@ -19,13 +19,15 @@
       </select>
       <input type="number" id="minutes-input" placeholder="分鐘">
       <button id="start-button">開始計時</button>
-      <div id="display-area"><h1 style="font-size: 10em;">
-        <p id="countdown-timer"></p>
-        <p id="subject-display"></p>
-        <p id="time-display"></p></h1>
-      </div>
+            <div id="display-area">
+                <p style="font-size: 20px;" id="selected-subject">請選擇科目</p>
+                <p style="font-size: 20px;" id="minutes-display"></p>
+                <p style="font-size: 20px;" id="countdown-timer">00:00</p>
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+
+    <audio id="alarm-sound" src="alarm.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
