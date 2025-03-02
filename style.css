@@ -7,14 +7,18 @@ body {
 
 .container {
     display: flex;
-    height: 100vh;
+    height: 100vh; /* 確保容器佔據整個視窗高度 */
 }
 
 .left-panel {
+    width: 500px; /* 左側固定寬度 */
+    padding: 20px;
     box-sizing: border-box;
 }
 
 .right-panel {
+    flex: 1; /* 右側佔據剩餘寬度 */
+    padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
 }
@@ -32,12 +36,11 @@ body {
 }
 
 #countdown-timer {
-    font-size: 5em;
     font-weight: bold;
 }
 
-/* 放大文字並佔據九成寬度 */
 #display-area p {
-    margin: 0 auto; /* 水平居中 */
-    word-wrap: break-word; /* 防止文字溢出 */
+    margin: 0 auto;
+    font-weight: bold;
+    word-wrap: break-word;
 }
