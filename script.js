@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `(${minutes} 分鐘)`;
+        minutesDisplay.textContent = `(${minutes} 分鐘)\n`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
