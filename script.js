@@ -20,15 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        
-        // 顯示開始和結束時間        
-        const now = new Date();
-        const startTime = new Date(now.getTime()); // 記錄開始時間
-        endTime = new Date(now.getTime() + minutes * 60000);
-        const startTimeString = formatTime(startTime);
-        const endTimeString = formatTime(endTime);
-        minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (Total ${minutes} min)`;
-
+        minutesDisplay.textContent = `(${minutes} 分鐘)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
