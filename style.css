@@ -11,7 +11,7 @@ body {
 }
 
 .left-panel {
-    width: 500px; /* 左側固定寬度 */
+    width: 600px; /* 左側固定寬度 */
     padding: 20px;
     box-sizing: border-box;
 }
