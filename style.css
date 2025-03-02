@@ -39,3 +39,11 @@ body {
     font-size: 2em;
     font-weight: bold;
 }
+
+/* 放大文字並佔據九成寬度 */
+#display-area p {
+    font-size: 1.5em; /* 調整文字大小 */
+    width: 90%; /* 佔據九成寬度 */
+    margin: 0 auto; /* 水平居中 */
+    word-wrap: break-word; /* 防止文字溢出 */
+}
