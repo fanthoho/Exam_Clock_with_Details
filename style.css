@@ -11,13 +11,11 @@ body {
 }
 
 .left-panel {
-    width: 70%;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .right-panel {
-    width: 30%;
     padding: 20px;
     box-sizing: border-box;
     background-color: #fff;
