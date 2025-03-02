@@ -30,20 +30,3 @@ body {
     box-sizing: border-box;
 }
 
-#display-area {
-    margin-top: 20px;
-    font-size: 20px;
-    text-align: center;
-}
-
-#countdown-timer {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#display-area p {
-    margin: 0 auto;
-    font-weight: bold;
-    font-size: 20px;
-    word-wrap: break-word;
-}
