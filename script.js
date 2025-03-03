@@ -24,15 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const endTime = new Date(now.getTime() + minutes * 60000);
 
         const [date, time] = startTime.split("T")
-        const [hours, minutes, seconds] = time.split(":")
+        const [hours, minutes] = time.split(":")
         const startTimeStr = hours + ":" + minutes
 
         const [date, time] = endTime.split("T")
-        const [hours, minutes, seconds] = time.split(":")
+        const [hours, minutes] = time.split(":")
         const endTimeStr = hours + ":" + minutes
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${startTimeStr}-${endTimeStr} (total ${minutes} min)`;
+        minutesDisplay.textContent = `${startTimeStr} - ${endTimeStr} (total ${minutes} min)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
