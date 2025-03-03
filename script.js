@@ -22,8 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         endTime = new Date(now.getTime() + minutes * 60000)
-        const startTimeString = startTime.toLocaleTimeString('en-US', { hour12: false });
-        const endTimeString = endTime.toLocaleTimeString('en-US', { hour12: false });
+        const startTimeString = ()=>{
+            const dd = [startTime.getHours(), startTime.getMinutes(), startTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
+            return dd.join(':');
+        };
+        const endTimeString = ()=>{
+            const dd = [endTime.getHours(), endTime.getMinutes(), endTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
+            return dd.join(':');
+        };
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
