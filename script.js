@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const minutesInput = document.getElementById('minutes-input');
     const startButton = document.getElementById('start-button');
     const selectedSubjectDisplay = document.getElementById('selected-subject');
+    const totalpageDisplay = document.getElementById('totalpage-display');
     const minutesDisplay = document.getElementById('minutes-display');
     const totalminutesDisplay = document.getElementById('totalminutes-display');
     const countdownTimerDisplay = document.getElementById('countdown-timer');
@@ -38,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
+        totalpageDisplay.textContent = `(total no. of pages: _______)`;
         minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
         totalminutesDisplay.textContent = `(total ${minutes} min)`;
         timeLeft = minutes * 60;
