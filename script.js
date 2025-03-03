@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        totalpageDisplay.textContent = `(total no. of pages: _______)`;
+        totalpageDisplay.textContent = `total __ pages`;
         minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
-        totalminutesDisplay.textContent = `(total ${minutes} min)`;
+        totalminutesDisplay.textContent = `(total ${minutes} mins)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
