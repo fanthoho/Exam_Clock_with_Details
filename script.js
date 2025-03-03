@@ -22,20 +22,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         const endTime = new Date(now.getTime() + minutes * 60000);
-        const hStr1 = startTime.getHours();
-        const mStr1 = startTime.getMinutes();
-        const tempStr1 = ":";
-        if (mStr1 <10) {
-            tempStr1 = ":0";
+        if (startTime.getMinutes() < 10) {
+            const startTimeString  = `${startTime.getHours()}:0${startTime.getMinutes()}`;
+        else
+            const startTimeString  = `${startTime.getHours()}:${startTime.getMinutes()}`;
         }
-        const hStr2 = endTime.getHours();
-        const mStr2 = endTime.getMinutes();
-        const tempStr2 = ":";
-        if (mStr2 <10) {
-            tempStr2 = ":0";
+        if (endTime.getMinutes() < 10) {
+            const endTimeString  = `${endTime.getHours()}:0${endTime.getMinutes()}`;
+        else
+            const endTimeString  = `${endTime.getHours()}:${endTime.getMinutes()}`;
         }
-        const startTimeString  = `${hStr1} ${tempStr1} ${mStr1}';
-        const endTimeString  = `${hStr2} ${tempStr2} ${mStr2}';
                 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
