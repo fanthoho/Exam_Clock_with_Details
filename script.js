@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const startTime = new Date(now.getTime());
         endTime = new Date(now.getTime() + minutes * 60000)
         const startTimeString = ()=>{
-            const dd = [startTime.getHours(), startTime.getMinutes(), startTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
+            const dd = [startTime.getHours(), startTime.getMinutes()].map((a)=>(a < 10 ? '0' + a : a));
             return dd.join(':');
         };
         const endTimeString = ()=>{
-            const dd = [endTime.getHours(), endTime.getMinutes(), endTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
+            const dd = [endTime.getHours(), endTime.getMinutes()].map((a)=>(a < 10 ? '0' + a : a));
             return dd.join(':');
         };
         
