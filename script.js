@@ -8,9 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalminutesDisplay = document.getElementById('totalminutes-display');
     const countdownTimerDisplay = document.getElementById('countdown-timer');
     const alarmSound = document.getElementById('alarm-sound');
+    const pauseButton = document.getElementById('pause-button'); // Get pause button
 
     let countdownInterval;
     let timeLeft;
+    let isPaused = false; // Track pause state
+    let remainingTimeBeforePause; // Store remaining time before pause
 
     startButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
@@ -29,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const hstr2 = endTime.getHours();
         const mstr1 = startTime.getMinutes();
         const mstr2 = endTime.getMinutes();
-        const tempstr1 = ":";
-        const tempstr2 = ":";
+        let tempstr1 = ":";
+        let tempstr2 = ":";
         if (mstr1 < 10) {
-            const tempstr1 = ":0";
+            tempstr1 = ":0";
         }
         if (mstr2 < 10) {
-            const tempstr2 = ":0";
+            tempstr2 = ":0";
         }
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
@@ -43,10 +46,29 @@ document.addEventListener('DOMContentLoaded', function() {
         minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
         totalminutesDisplay.textContent = `(total ${minutes} mins)`;
         timeLeft = minutes * 60;
+        remainingTimeBeforePause = timeLeft; // Initialize remaining time
 
         clearInterval(countdownInterval);
+        isPaused = false;
+        pauseButton.textContent = 'Pause'; // Set pause button text
         updateCountdownDisplay();
         countdownInterval = setInterval(updateCountdown, 1000);
+    });
+
+    pauseButton.addEventListener('click', function() {
+        if (isPaused) {
+            // Resume countdown
+            isPaused = false;
+            pauseButton.textContent = 'Pause';
+            timeLeft = remainingTimeBeforePause;
+            countdownInterval = setInterval(updateCountdown, 1000);
+        } else {
+            // Pause countdown
+            isPaused = true;
+            pauseButton.textContent = 'Resume';
+            clearInterval(countdownInterval);
+            remainingTimeBeforePause = timeLeft;
+        }
     });
 
     function updateCountdown() {
