@@ -22,9 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         endTime = new Date(now.getTime() + minutes * 60000)
+        const startTimeString = formatTime(startTime);
+        const endTimeString = formatTime(endTime);
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${startTime} - ${endTime} (total ${minutes} minutes)`;
+        minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
