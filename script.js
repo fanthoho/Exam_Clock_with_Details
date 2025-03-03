@@ -23,12 +23,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const startTime = new Date(now.getTime());
         endTime = new Date(now.getTime() + minutes * 60000)
         const startTimeString = ()=>{
-            const dd = [startTime.getHours(), startTime.getMinutes(), startTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
-            return dd.join(':');
+            const hhh = startTime.getHours();
+            const mmm = startTime.getMinutes();
+            const bbb = ":"
+            if (mmm < 10) {
+                aaa = 0;
+            else aaa = "";
+            dd = [hhh,bbb,aaa,mmm]
+            return dd.join();
         };
         const endTimeString = ()=>{
-            const dd = [endTime.getHours(), endTime.getMinutes(), endTime.getSeconds()].map((a)=>(a < 10 ? '0' + a : a));
-            return dd.join(':');
+            const hhh = endTime.getHours();
+            const mmm = endTime.getMinutes();
+            const bbb = ":"
+            if (mmm < 10) {
+                aaa = 0;
+            else aaa = "";
+            dd = [hhh,bbb,aaa,mmm]
+            return dd.join();
         };
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
