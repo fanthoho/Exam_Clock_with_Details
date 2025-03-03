@@ -22,21 +22,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         const endTime = new Date(now.getTime() + minutes * 60000);
-        const hstr1 = startTime.getHours();
-        const mstr1 = startTime.getMinutes();
-        const hstr2 = endTime.getHours();
-        const mstr2 = endTime.getMinutes();
-        const tempstr1 = ":";
-        const tempstr2 = ":";
-        if (mstr1 < 10) {
-            const tempstr1 = ":0";
-        }
-        if (mstr2 < 10) {
-            const tempstr2 = ":0";
-        }
-                
+
+        const [date, time] = startTime.split("T")
+        const [hours, minutes, seconds] = time.split(":")
+        const startTimeStr = hours + ":" + minutes
+
+        const [date, time] = endTime.split("T")
+        const [hours, minutes, seconds] = time.split(":")
+        const endTimeStr = hours + ":" + minutes
+        
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}<br>(total ${minutes} minutes)`;
+        minutesDisplay.textContent = `${startTimeStr}-${endTimeStr}<br>(total ${minutes} minutes)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
