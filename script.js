@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const now = new Date();
         const startTime = new Date(now.getTime());
-        endTime = new Date(now.getTime() + minutes * 60000)
+        const endTime = new Date(now.getTime() + minutes * 60000)
         const [date, time] = startTime.split("T")
-        const [hours, minutes] = startTime.split(":")
+        const [hours, minutes] = time.split(":")
         const startTimeString  = hours + ":" + minutes
         const [date, time] = endTime.split("T")
-        const [hours, minutes] = endTime.split(":")
+        const [hours, minutes] = time.split(":")
         const endTimeString  = hours + ":" + minutes
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
