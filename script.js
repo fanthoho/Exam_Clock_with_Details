@@ -27,20 +27,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const hstr2 = endTime.getHours();
         const mstr2 = endTime.getMinutes();
         const tempstr1 = ":";
-        const tempstr2 = ":0";
+        const tempstr2 = ":";
         if (mstr1 < 10) {
-            const startTimeString  = hstr1 + tempstr2 + mstr1;
-        else
-            const startTimeString  = hstr1 + tempstr1 + mstr1;
+            const tempstr1 = ":0";
         }
         if (mstr2 < 10) {
-            const startTimeString  = hstr2 + tempstr2 + mstr2;
-        else
-            const startTimeString  = hstr2 + tempstr1 + mstr2;
+            const tempstr2 = ":0";
         }
                 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
+        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}<br>(total ${minutes} minutes)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
