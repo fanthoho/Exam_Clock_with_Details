@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         endTime = new Date(now.getTime() + minutes * 60000)
-        const startTimeString = startTime.toLocaleTimeString();
-        const endTimeString = endTime.toLocaleTimeString();
+        const startTimeString = startTime.toLocaleTimeString('en-US', { hour12: false });
+        const endTimeString = endTime.toLocaleTimeString('en-US', { hour12: false });
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
