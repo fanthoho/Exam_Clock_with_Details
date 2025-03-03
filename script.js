@@ -22,12 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         const endTime = new Date(now.getTime() + minutes * 60000)
-        const [date, time] = startTime.split("T")
-        const [hours, minutes] = time.split(":")
-        const startTimeString  = hours + ":" + minutes
-        const [date, time] = endTime.split("T")
-        const [hours, minutes] = time.split(":")
-        const endTimeString  = hours + ":" + minutes
+
+        const startTimeString  = startTime.getHours  + ":" + startTime.getMinutes
+        const endTimeString  = endTime.getHours  + ":" + endTime.getMinutes
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
