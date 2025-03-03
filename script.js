@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const startButton = document.getElementById('start-button');
     const selectedSubjectDisplay = document.getElementById('selected-subject');
     const minutesDisplay = document.getElementById('minutes-display');
+    const totalminutesDisplay = document.getElementById('totalminutes-display');
     const countdownTimerDisplay = document.getElementById('countdown-timer');
     const alarmSound = document.getElementById('alarm-sound');
 
@@ -37,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2\n} (total ${minutes} min)`;
+        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
+        totalminutesDisplay.textContent = `(total ${minutes} min)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
