@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2} (total ${minutes} min)`;
+        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2\n} (total ${minutes} min)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
