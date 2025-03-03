@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mStr2 <10) {
             tempStr2 = ":0";
         }
-        const startTimeString  = hStr1 + tempStr1 + mStr1;
-        const endTimeString  = hStr2 + tempStr2 + mStr2;
+        const startTimeString  = `${hStr1} ${tempStr1} ${mStr1}';
+        const endTimeString  = `${hStr2} ${tempStr2} ${mStr2}';
                 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
