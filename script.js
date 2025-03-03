@@ -22,15 +22,21 @@ document.addEventListener('DOMContentLoaded', function() {
         const now = new Date();
         const startTime = new Date(now.getTime());
         const endTime = new Date(now.getTime() + minutes * 60000);
-        if (startTime.getMinutes() < 10) {
-            const startTimeString  = `${startTime.getHours()}:0${startTime.getMinutes()}`;
+        const hstr1 = startTime.getHours();
+        const mstr1 = startTime.getMinutes();
+        const hstr2 = endTime.getHours();
+        const mstr2 = endTime.getMinutes();
+        const tempstr1 = ":";
+        const tempstr2 = ":0";
+        if (mstr1 < 10) {
+            const startTimeString  = hstr1 + tempstr2 + mstr1;
         else
-            const startTimeString  = `${startTime.getHours()}:${startTime.getMinutes()}`;
+            const startTimeString  = hstr1 + tempstr1 + mstr1;
         }
-        if (endTime.getMinutes() < 10) {
-            const endTimeString  = `${endTime.getHours()}:0${endTime.getMinutes()}`;
+        if (mstr2 < 10) {
+            const startTimeString  = hstr2 + tempstr2 + mstr2;
         else
-            const endTimeString  = `${endTime.getHours()}:${endTime.getMinutes()}`;
+            const startTimeString  = hstr2 + tempstr1 + mstr2;
         }
                 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
