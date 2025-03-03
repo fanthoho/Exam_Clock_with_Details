@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const startTime = new Date(now.getTime());
         const endTime = new Date(now.getTime() + minutes * 60000)
 
-        const startTimeString  = startTime.getHours  + ":" + startTime.getMinutes
-        const endTimeString  = endTime.getHours  + ":" + endTime.getMinutes
+        const startTimeString  = startTime.getHours() + ":" + startTime.getMinutes();
+        const endTimeString  = endTime.getHours() + ":" + endTime.getMinutes();
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         minutesDisplay.textContent = `${startTimeString} - ${endTimeString} (total ${minutes} minutes)`;
