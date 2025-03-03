@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = parseInt(minutesInput.value, 10);
 
         if (isNaN(minutes) || minutes <= 0) {
-            alert('請輸入有效的分鐘數。');
+            alert('Please enter the number of minutes. Must be positive number.。');
             return;
         }
 
+        const now = new Date();
+        const startTime = new Date(now.getTime());
+        endTime = new Date(now.getTime() + minutes * 60000)
+        
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        minutesDisplay.textContent = `(${minutes} 分鐘)`;
+        minutesDisplay.textContent = `${startTime} - ${endTime} (total ${minutes} minutes)`;
         timeLeft = minutes * 60;
 
         clearInterval(countdownInterval);
@@ -31,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateCountdown() {
         if (timeLeft <= 0) {
             clearInterval(countdownInterval);
-            countdownTimerDisplay.textContent = '時間到！';
+            countdownTimerDisplay.textContent = 'Time is up. Stop Writing.';
             alarmSound.play();
             return;
         }
