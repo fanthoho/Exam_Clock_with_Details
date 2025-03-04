@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let timeLeft;
     let isPaused = false; // Track pause state
     let remainingTimeBeforePause; // Store remaining time before pause
+    let startTime; // Store the start time
+    let totalMinutes; // Store the total minutes
 
     startButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
@@ -25,8 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const now = new Date();
-        const startTime = new Date(now.getTime());
+        startTime = new Date(now.getTime()); // Store the start time
         const endTime = new Date(now.getTime() + minutes * 60000);
+        totalMinutes = minutes; // Store the total minutes
 
         const hstr1 = startTime.getHours();
         const hstr2 = endTime.getHours();
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         totalpageDisplay.textContent = `total __ pages`;
-        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
+        updateTimeDisplay(); // Update the time display
         totalminutesDisplay.textContent = `(total ${minutes} mins)`;
         timeLeft = minutes * 60;
         remainingTimeBeforePause = timeLeft; // Initialize remaining time
@@ -87,5 +90,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = Math.floor(timeLeft / 60);
         const seconds = timeLeft % 60;
         countdownTimerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function updateTimeDisplay() {
+        const hstr1 = startTime.getHours();
+        const mstr1 = startTime.getMinutes();
+        let tempstr1 = ":";
+        if (mstr1 < 10) {
+            tempstr1 = ":0";
+        }
+
+        const endTime = new Date(startTime.getTime() + totalMinutes * 60000);
+        const hstr2 = endTime.getHours();
+        const mstr2 = endTime.getMinutes();
+        let tempstr2 = ":";
+        if (mstr2 < 10) {
+            tempstr2 = ":0";
+        }
+
+        minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
     }
 });
