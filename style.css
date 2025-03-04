@@ -38,7 +38,10 @@ body {
     padding: 8px;
 }
 
-/* 統一按鈕樣式 */
+#pause-display {
+    font-size: 0.5em; /* 設定為原本字體大小的一半 */
+}
+
 #start-button, #pause-button {
   background-color: #4CAF50; /* 設定背景顏色 */
   border: none; /* 移除邊框 */
