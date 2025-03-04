@@ -73,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clearInterval(countdownInterval);
             countdownTimerDisplay.textContent = 'Time is up. Stop Writing.';
             alarmSound.play();
+            stopAlarmButton.style.display = 'inline-block'; // Show stop alarm button
             return;
         }
 
@@ -112,4 +113,12 @@ document.addEventListener('DOMContentLoaded', function() {
         pauseDisplay.textContent = `(Pause ${pauseMinutes} min ${pauseSeconds} sec)`; // Update pauseDisplay with seconds
         totalminutesDisplay.textContent = `(total ${totalMinutes} min)`; // Update totalminutesDisplay
     }
+    
+    // Stop alarm button click handler
+    stopAlarmButton.addEventListener('click', function() {
+        alarmSound.pause();
+        alarmSound.currentTime = 0; // Reset audio to start
+        stopAlarmButton.style.display = 'none'; // Hide stop alarm button
+    });
+    
 });
