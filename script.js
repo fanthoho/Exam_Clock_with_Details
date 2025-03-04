@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = parseInt(minutesInput.value, 10);
 
         if (isNaN(minutes) || minutes <= 0) {
-            alert('Please enter the number of minutes. Must be positive number.。');
+            alert('Please enter the number of minutes. Must be positive number.');
             return;
         }
 
