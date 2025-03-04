@@ -61,12 +61,12 @@ body {
 
 
 #display-area {
-    margin-top: 16px;
+    margin-top: 14px;
     text-align: center;
 }
 
 #countdown-timer {
-    font-size: 14em;
+    font-size: 12em;
     font-weight: bold;
 }
 
