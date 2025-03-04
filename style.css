@@ -33,9 +33,31 @@ body {
   margin-right: 10px; /* 調整元素之間的間距 */
 }
 
-#subject-select, #minutes-input, #start-button {
+#subject-select, #minutes-input {
     margin-bottom: 10px;
     padding: 8px;
+}
+
+/* 統一按鈕樣式 */
+#start-button,
+#pause-button {
+  background-color: #4CAF50; /* 設定背景顏色 */
+  border: none; /* 移除邊框 */
+  color: white; /* 設定文字顏色 */
+  padding: 10px 20px; /* 設定內邊距 */
+  text-align: center; /* 文字居中 */
+  text-decoration: none; /* 移除底線 */
+  display: inline-block; /* 設定為行內區塊元素 */
+  font-size: 16px; /* 設定文字大小 */
+  margin: 4px 2px; /* 設定外邊距 */
+  cursor: pointer; /* 滑鼠游標變為手指 */
+  border-radius: 5px; /* 設定圓角 */
+}
+
+/* 滑鼠懸停時的樣式 */
+#start-button:hover,
+#pause-button:hover {
+  background-color: #3e8e41; /* 更深的背景顏色 */
 }
 
 
