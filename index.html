@@ -4,38 +4,35 @@
   <title>Exam Clock with Details</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="container">
-    <div class="left-panel">
-      <iframe src="https://time.weather.gov.hk/clock_tc_iframe.html" style="border: none; height: 600px; width: 500px;" scrolling="no"></iframe>
-    </div>
-    <div class="right-panel">
-        <select id="subject-select">
-            <option value="chinese-listening">中文(聆聽)</option>
-            <option value="chinese-reading">中文(閱讀理解)</option>
-            <option value="chinese-writing">中文(寫作)</option>
-            <option value="english-reading">English (Reading Comprehension)</option>
-            <option value="english-grammar">English (Grammar and Listening)</option>
-            <option value="english-writing">English (Writing)</option>
-            <option value="math">數學</option>
-            <option value="general-knowledge">常識</option>
-            <option value="music">音樂</option>
-            <option value="visual-arts">視藝</option>
-        </select>
-      <div class="input-row">
-        <input type="number" id="minutes-input" placeholder="分鐘">
-        <button id="start-button">開始計時</button>
-        <button id="pause-button">暫停</button>
-      </div>
-      <div id="display-area">
-        <p id="countdown-timer"></p>
-        <p id="pause-display"></p> <!-- 新增顯示停頓時間的元素 -->
-        <p id="subject-display"></p>
-        <p id="time-display"></p>
-        <p id = "totalminutes-display"></p>
-      </div>
-    </div>
-  </div>
-  <script src="script.js"></script>
+<body><div class="container">
+<div style="max-width: 500px; width: 100%; margin-left: auto; margin-right: auto;"><iframe src="https://time.weather.gov.hk/clock_tc_iframe.html" style="border: none; height: 600px; width: 500px;" scrolling="no"></iframe></div>
+    <div class="right-panel"><div class="input-row">
+            <select id="subject-select">
+                <option value="chinese-listening">中文(聆聽)</option>
+                <option value="chinese-reading">中文(閱讀理解)</option>
+                <option value="chinese-writing">中文(寫作)</option>
+                <option value="english-reading">English (Reading Comprehension)</option>
+                <option value="english-grammar">English (Grammar and Listening)</option>
+                <option value="english-writing">English (Writing)</option>
+                <option value="math">數學</option>
+                <option value="general-knowledge">常識</option>
+                <option value="music">音樂</option>
+                <option value="visual-arts">視藝</option>
+            </select>
+            <input type="number" id="minutes-input" placeholder="分鐘" value="50">
+      <button id="start-button">Start</button><button id="pause-button">Pause</button></div>
+            <div id="display-area">
+                <p id="selected-subject">Please select subject</p>
+                <p id="totalpage-display"></p>
+                <p id="minutes-display"></p>
+                <p id="totalminutes-display"></p>
+                <p id="countdown-timer">00:00</p>
+                <p id="pause-display"></p>
+            </div>
+        </div></div>
+
+
+    <audio id="alarm-sound" src="alarm.mp3" preload="auto"></audio>
+    <h2 style="font-size: 12em;"><script src="script.js"></script></h2>
 </body>
 </html>
