@@ -23,6 +23,16 @@ body {
     background-color: #fff;
 }
 
+.input-row {
+  display: flex; /* 使用 Flexbox 佈局 */
+  align-items: center; /* 垂直居中 */
+}
+
+.input-row input[type="number"],
+.input-row button {
+  margin-right: 10px; /* 調整元素之間的間距 */
+}
+
 #subject-select, #minutes-input, #start-button {
     margin-bottom: 10px;
     padding: 8px;
