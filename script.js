@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updatePauseDisplay() {
         const pauseMinutes = Math.floor(totalPauseTime / 60);
-        pauseDisplay.textContent = `(Pause ${pauseMinutes} mins)`; // Update pauseDisplay
+        const pauseSeconds = Math.floor(totalPauseTime % 60);
+        pauseDisplay.textContent = `(Pause ${pauseMinutes} mins ${pauseSeconds} secs)`; // Update pauseDisplay with seconds
         totalminutesDisplay.textContent = `(total ${totalMinutes} mins)`; // Update totalminutesDisplay
     }
 });
