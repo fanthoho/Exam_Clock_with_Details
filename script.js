@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let totalMinutes;
     let totalPauseTime = 0; // Track total pause time in seconds
     let pauseStartTime; // Track when pause started
+    let timerStarted = false; // Add a flag to track if the timer has started
 
     startButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
