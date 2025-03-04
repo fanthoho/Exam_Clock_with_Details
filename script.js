@@ -8,14 +8,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalminutesDisplay = document.getElementById('totalminutes-display');
     const countdownTimerDisplay = document.getElementById('countdown-timer');
     const alarmSound = document.getElementById('alarm-sound');
-    const pauseButton = document.getElementById('pause-button'); // Get pause button
+    const pauseButton = document.getElementById('pause-button');
 
     let countdownInterval;
     let timeLeft;
-    let isPaused = false; // Track pause state
-    let remainingTimeBeforePause; // Store remaining time before pause
-    let startTime; // Store the start time
-    let totalMinutes; // Store the total minutes
+    let isPaused = false;
+    let remainingTimeBeforePause;
+    let startTime;
+    let totalMinutes;
+    let totalPauseTime = 0; // Track total pause time in seconds
+    let pauseStartTime; // Track when pause started
 
     startButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
@@ -27,33 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const now = new Date();
-        startTime = new Date(now.getTime()); // Store the start time
-        const endTime = new Date(now.getTime() + minutes * 60000);
-        totalMinutes = minutes; // Store the total minutes
-
-        const hstr1 = startTime.getHours();
-        const hstr2 = endTime.getHours();
-        const mstr1 = startTime.getMinutes();
-        const mstr2 = endTime.getMinutes();
-        let tempstr1 = ":";
-        let tempstr2 = ":";
-        if (mstr1 < 10) {
-            tempstr1 = ":0";
-        }
-        if (mstr2 < 10) {
-            tempstr2 = ":0";
-        }
-        
-        selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
-        totalpageDisplay.textContent = `total __ pages`;
-        updateTimeDisplay(); // Update the time display
-        totalminutesDisplay.textContent = `(total ${minutes} mins)`;
+        startTime = new Date(now.getTime());
+        totalMinutes = minutes;
         timeLeft = minutes * 60;
-        remainingTimeBeforePause = timeLeft; // Initialize remaining time
+        remainingTimeBeforePause = timeLeft;
+        totalPauseTime = 0; // Reset pause time when starting a new timer
+
+        updateTimeDisplay(); // Update the time display
+        updatePauseDisplay(); // Update the pause display
 
         clearInterval(countdownInterval);
         isPaused = false;
-        pauseButton.textContent = 'Pause'; // Set pause button text
+        pauseButton.textContent = 'Pause';
         updateCountdownDisplay();
         countdownInterval = setInterval(updateCountdown, 1000);
     });
@@ -64,6 +51,9 @@ document.addEventListener('DOMContentLoaded', function() {
             isPaused = false;
             pauseButton.textContent = 'Pause';
             timeLeft = remainingTimeBeforePause;
+            totalPauseTime += (new Date().getTime() - pauseStartTime) / 1000; // Accumulate pause time
+            updateTimeDisplay(); // Update the time display
+            updatePauseDisplay(); // Update the pause display
             countdownInterval = setInterval(updateCountdown, 1000);
         } else {
             // Pause countdown
@@ -71,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseButton.textContent = 'Resume';
             clearInterval(countdownInterval);
             remainingTimeBeforePause = timeLeft;
+            pauseStartTime = new Date().getTime(); // Record pause start time
         }
     });
 
@@ -100,7 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
             tempstr1 = ":0";
         }
 
-        const endTime = new Date(startTime.getTime() + totalMinutes * 60000);
+        const adjustedTotalMinutes = totalMinutes + Math.floor(totalPauseTime / 60); // Add pause time to total minutes
+        const endTime = new Date(startTime.getTime() + adjustedTotalMinutes * 60000);
         const hstr2 = endTime.getHours();
         const mstr2 = endTime.getMinutes();
         let tempstr2 = ":";
@@ -109,5 +101,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         minutesDisplay.textContent = `${hstr1}${tempstr1}${mstr1}-${hstr2}${tempstr2}${mstr2}`;
+    }
+
+    function updatePauseDisplay() {
+        const pauseMinutes = Math.floor(totalPauseTime / 60);
+        totalminutesDisplay.textContent = `(total ${totalMinutes} mins)(Pause ${pauseMinutes} mins)`;
     }
 });
