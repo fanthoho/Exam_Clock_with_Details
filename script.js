@@ -47,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
         pauseButton.textContent = 'Pause';
         updateCountdownDisplay();
         countdownInterval = setInterval(updateCountdown, 1000);
+
+        startButton.textContent = 'Restart';
     });
 
     pauseButton.addEventListener('click', function() {
