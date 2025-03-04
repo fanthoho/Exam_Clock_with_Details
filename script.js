@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseButton.textContent = 'Pause';
             timeLeft = remainingTimeBeforePause;
             totalPauseTime += (new Date().getTime() - pauseStartTime) / 1000; // Accumulate pause time
+            timerStarted = true;
             updateTimeDisplay(); // Update the time display
             updatePauseDisplay(); // Update the pause display
             countdownInterval = setInterval(updateCountdown, 1000);
