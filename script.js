@@ -112,9 +112,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updatePauseDisplay() {
-        const pauseMinutes = Math.floor(totalPauseTime / 60);
-        const pauseSeconds = Math.floor(totalPauseTime % 60);
-        pauseDisplay.textContent = `(Pause ${pauseMinutes} min ${pauseSeconds} sec)`; // Update pauseDisplay with seconds
+        if (timerStarted) { // Only update if the timer has started
+            const pauseMinutes = Math.floor(totalPauseTime / 60);
+            const pauseSeconds = Math.floor(totalPauseTime % 60);
+            pauseDisplay.textContent = `(Pause ${pauseMinutes} min ${pauseSeconds} sec)`; // Update pauseDisplay with seconds
+        } else {
+            pauseDisplay.textContent = ""; // Clear the text if the timer hasn't started
+        }
         totalminutesDisplay.textContent = `(total ${totalMinutes} min)`; // Update totalminutesDisplay
     }
     
@@ -124,5 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alarmSound.currentTime = 0; // Reset audio to start
         stopAlarmButton.style.display = 'none'; // Hide stop alarm button
     });
-    
+
+    // Initialize the pause display to be empty on page load
+    pauseDisplay.textContent = "";
 });
