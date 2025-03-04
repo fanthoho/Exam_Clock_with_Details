@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const countdownTimerDisplay = document.getElementById('countdown-timer');
     const alarmSound = document.getElementById('alarm-sound');
     const pauseButton = document.getElementById('pause-button');
+    const pauseDisplay = document.getElementById('pause-display'); // Get pause display element
 
     let countdownInterval;
     let timeLeft;
@@ -105,6 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function updatePauseDisplay() {
         const pauseMinutes = Math.floor(totalPauseTime / 60);
-        totalminutesDisplay.textContent = `(total ${totalMinutes} mins)(Pause ${pauseMinutes} mins)`;
+        pauseDisplay.textContent = `(Pause ${pauseMinutes} mins)`; // Update pauseDisplay
+        totalminutesDisplay.textContent = `(total ${totalMinutes} mins)`; // Update totalminutesDisplay
     }
 });
