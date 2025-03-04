@@ -39,8 +39,7 @@ body {
 }
 
 /* 統一按鈕樣式 */
-#start-button,
-#pause-button {
+#start-button, #pause-button {
   background-color: #4CAF50; /* 設定背景顏色 */
   border: none; /* 移除邊框 */
   color: white; /* 設定文字顏色 */
