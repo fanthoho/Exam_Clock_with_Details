@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownInterval = setInterval(updateCountdown, 1000);
 
         startButton.textContent = 'Restart';
+        totalpageDisplay.textContent = 'total ____ pages';
     });
 
     pauseButton.addEventListener('click', function() {
