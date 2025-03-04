@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalminutesDisplay = document.getElementById('totalminutes-display');
     const countdownTimerDisplay = document.getElementById('countdown-timer');
     const alarmSound = document.getElementById('alarm-sound');
+    const stopAlarmButton = document.getElementById('stop-alarm-button');
     const pauseButton = document.getElementById('pause-button');
     const pauseDisplay = document.getElementById('pause-display'); // Get pause display element
 
