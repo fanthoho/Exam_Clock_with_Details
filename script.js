@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
+        
         const now = new Date();
         startTime = new Date(now.getTime());
         totalMinutes = minutes;
