@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const subjectSelect = document.getElementById('subject-select');
     const minutesInput = document.getElementById('minutes-input');
     const startButton = document.getElementById('start-button');
-    const selectedSubjectDisplay = document.getElementById('selected-subject');
+    const selectedSubjectDisplay = document.getElementById('subject-display'); // 修改了這裡
     const totalpageDisplay = document.getElementById('totalpage-display');
     const minutesDisplay = document.getElementById('minutes-display');
     const totalminutesDisplay = document.getElementById('totalminutes-display');
@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     startButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
+
+        // 顯示選取的科目
+        selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
+
         const minutes = parseInt(minutesInput.value, 10);
 
         if (isNaN(minutes) || minutes <= 0) {
