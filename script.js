@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const alarmSound = document.getElementById('alarm-sound');
     const stopAlarmButton = document.getElementById('stop-alarm-button');
     const pauseButton = document.getElementById('pause-button');
+    const subjectButton = document.getElementById('subject-button');
     const pauseDisplay = document.getElementById('pause-display'); // Get pause display element
 
     let countdownInterval;
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let pauseStartTime; // Track when pause started
     let timerStarted = false; // Add a flag to track if the timer has started
 
-    startButton.addEventListener('click', function() {
+    subjectButton.addEventListener('click', function() {
         const selectedSubject = subjectSelect.value;
         const minutes = parseInt(minutesInput.value, 10);
 
@@ -32,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
+        totalpageDisplay.textContent = 'Total ____ pages';
+    }
+    
+    startButton.addEventListener('click', function() {
+        const selectedSubject = subjectSelect.value;
+        const minutes = parseInt(minutesInput.value, 10);
+
+        if (isNaN(minutes) || minutes <= 0) {
+            alert('Please enter the number of minutes. Must be positive number.');
+            return;
+        }
         
         const now = new Date();
         startTime = new Date(now.getTime());
@@ -50,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownInterval = setInterval(updateCountdown, 1000);
 
         startButton.textContent = 'Restart';
-        totalpageDisplay.textContent = 'total ____ pages';
+
     });
 
     pauseButton.addEventListener('click', function() {
@@ -121,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             pauseDisplay.textContent = ""; // Clear the text if the timer hasn't started
         }
-        totalminutesDisplay.textContent = `(total ${totalMinutes} min)`; // Update totalminutesDisplay
+        totalminutesDisplay.textContent = `(Total ${totalMinutes} min)`; // Update totalminutesDisplay
     }
     
     // Stop alarm button click handler
