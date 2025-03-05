@@ -57,7 +57,7 @@ body {
 }
 
 /* 滑鼠懸停時的樣式 */
-#start-button:hover, #pause-button:hover, #stop-alarm-button:hover {
+#subject-button:hover, #start-button:hover, #pause-button:hover, #stop-alarm-button:hover {
   background-color: #3e8e41; /* 更深的背景顏色 */
 }
 
