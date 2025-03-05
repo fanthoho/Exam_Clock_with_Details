@@ -34,10 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         selectedSubjectDisplay.textContent = subjectSelect.options[subjectSelect.selectedIndex].text;
         totalpageDisplay.textContent = 'Total ____ pages';
-    }
+  });
     
     startButton.addEventListener('click', function() {
-        const selectedSubject = subjectSelect.value;
         const minutes = parseInt(minutesInput.value, 10);
 
         if (isNaN(minutes) || minutes <= 0) {
