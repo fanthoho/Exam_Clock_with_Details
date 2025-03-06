@@ -37,31 +37,19 @@ document.addEventListener('DOMContentLoaded', function() {
   });
     
     startButton.addEventListener('click', function() {
-        const minutes = parseInt(minutesInput.value, 10);
-
-        if (isNaN(minutes) || minutes <= 0) {
-            alert('Please enter the number of minutes. Must be positive number.');
-            return;
+        if (!timerStarted) {
+            // First Start
+            const confirmation = confirm("Are you sure you want to start the timer?");
+            if (confirmation) {
+                startCountdown();
+            }
+        } else {
+            // Restart
+            const confirmation = confirm("Are you sure you want to restart the timer?");
+            if (confirmation) {
+                startCountdown();
+            }
         }
-        
-        const now = new Date();
-        startTime = new Date(now.getTime());
-        totalMinutes = minutes;
-        timeLeft = minutes * 60;
-        remainingTimeBeforePause = timeLeft;
-        totalPauseTime = 0; // Reset pause time when starting a new timer
-
-        updateTimeDisplay(); // Update the time display
-        updatePauseDisplay(); // Update the pause display
-
-        clearInterval(countdownInterval);
-        isPaused = false;
-        //pauseButton.textContent = 'Pause/Resume';
-        updateCountdownDisplay();
-        countdownInterval = setInterval(updateCountdown, 1000);
-
-        startButton.textContent = 'Restart the timer';
-
     });
 
     pauseButton.addEventListener('click', function() {
@@ -84,6 +72,34 @@ document.addEventListener('DOMContentLoaded', function() {
             pauseStartTime = new Date().getTime(); // Record pause start time
         }
     });
+
+    function startCountdown() {
+        const minutes = parseInt(minutesInput.value, 10);
+
+        if (isNaN(minutes) || minutes <= 0) {
+            alert('Please enter the number of minutes. Must be positive number.');
+            return;
+        }
+        
+        const now = new Date();
+        startTime = new Date(now.getTime());
+        totalMinutes = minutes;
+        timeLeft = minutes * 60;
+        remainingTimeBeforePause = timeLeft;
+        totalPauseTime = 0; // Reset pause time when starting a new timer
+        timerStarted = true;
+
+        updateTimeDisplay(); // Update the time display
+        updatePauseDisplay(); // Update the pause display
+
+        clearInterval(countdownInterval);
+        isPaused = false;
+        //pauseButton.textContent = 'Pause/Resume';
+        updateCountdownDisplay();
+        countdownInterval = setInterval(updateCountdown, 1000);
+
+        startButton.textContent = 'Restart the timer';
+    }
 
     function updateCountdown() {
         if (timeLeft <= 0) {
