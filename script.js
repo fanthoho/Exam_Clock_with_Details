@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         clearInterval(countdownInterval);
         isPaused = false;
-        pauseButton.textContent = 'Pause';
+        //pauseButton.textContent = 'Pause/Resume';
         updateCountdownDisplay();
         countdownInterval = setInterval(updateCountdown, 1000);
 
-        startButton.textContent = 'Restart';
+        startButton.textContent = 'Restart the timer';
 
     });
 
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (isPaused) {
             // Resume countdown
             isPaused = false;
-            pauseButton.textContent = 'Pause';
+            //pauseButton.textContent = 'Pause';
             timeLeft = remainingTimeBeforePause;
             totalPauseTime += (new Date().getTime() - pauseStartTime) / 1000; // Accumulate pause time
             timerStarted = true;
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Pause countdown
             isPaused = true;
-            pauseButton.textContent = 'Resume';
+            //pauseButton.textContent = 'Resume';
             clearInterval(countdownInterval);
             remainingTimeBeforePause = timeLeft;
             pauseStartTime = new Date().getTime(); // Record pause start time
